@@ -28,7 +28,7 @@ namespace paintV3
                 player.source = "Robot.bmp";
                 player.locationX = 100;
                 player.locationY = 100;
-                player.dist = 1000;
+                player.dist = 100000000;
 
                 materialList playerMats = new materialList();
                 {

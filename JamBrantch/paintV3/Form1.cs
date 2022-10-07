@@ -39,6 +39,11 @@ namespace paintV3
             if (e.KeyCode == Keys.D) { keys.D = false; }
             if (e.KeyCode == Keys.W) { keys.W = false; }
             if (e.KeyCode == Keys.S) { keys.S = false; }
+            if (e.KeyCode == Keys.Q) { keys.Q = false; }
+            if (e.KeyCode == Keys.E) { keys.E = false; }
+            if (e.KeyCode == Keys.R) { keys.R = false; }
+
+
         }
         private void keydown(object sender, KeyEventArgs e)
         {
@@ -46,6 +51,9 @@ namespace paintV3
             if (e.KeyCode == Keys.D) { keys.D = true; }
             if (e.KeyCode == Keys.W) { keys.W = true; }
             if (e.KeyCode == Keys.S) { keys.S = true; }
+            if (e.KeyCode == Keys.Q) { keys.Q = true; }
+            if (e.KeyCode == Keys.E) { keys.E = true; }
+            if (e.KeyCode == Keys.R) { keys.R = true; }
         }
 
         public Form1()
