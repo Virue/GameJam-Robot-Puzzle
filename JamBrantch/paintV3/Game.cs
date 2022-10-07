@@ -100,7 +100,7 @@ namespace paintV3
 
         }
 
-        public void startup() { }
+        public void startup(PictureBox battery) { }
         public void update(List<layer> GameLayers, Imputs key , PictureBox battery) 
         {
             int camSpeed = 200;
@@ -111,8 +111,7 @@ namespace paintV3
             if (key.S) { foreach (layer lay in GameLayers) { lay.ParalaxMove(0,camSpeed);   } }
 
 
-            battery.Height = 100;
-
+            
 
         }
     }

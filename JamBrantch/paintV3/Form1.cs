@@ -67,6 +67,7 @@ namespace paintV3
         {
             
             game.gameLayers(l.layerlist);
+            game.startup(pictureBox2);
             l.populateLayers();
 
             ScaleWindow();
