@@ -17,7 +17,7 @@ namespace paintV3
     public partial class Form1 : Form
     {
 
-        public Game game = new Game ();
+        public Game game = new Game ( );
 
         public Imputs keys = new Imputs();
 
@@ -51,6 +51,7 @@ namespace paintV3
         public Form1()
         {
             InitializeComponent();
+            
         }
 
         public static layers l = new layers( );
@@ -102,7 +103,7 @@ namespace paintV3
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            game.update(l.layerlist, keys);
+            game.update(l.layerlist, keys , pictureBox2);
 
             fireingFrameTracker = !fireingFrameTracker;
             frames++;

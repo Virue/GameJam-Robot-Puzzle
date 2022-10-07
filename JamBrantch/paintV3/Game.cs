@@ -110,8 +110,8 @@ namespace paintV3
             if (key.W) { foreach (layer lay in GameLayers) { lay.ParalaxMove(0,-camSpeed);  } }
             if (key.S) { foreach (layer lay in GameLayers) { lay.ParalaxMove(0,camSpeed);   } }
 
-            
 
+            battery.Height = 100;
 
 
         }
