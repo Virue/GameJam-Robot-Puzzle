@@ -16,7 +16,7 @@ namespace paintV3
 
             layer player = new layer();
             {
-                player.source = "Player.bmp";
+                player.source = "Robot.bmp";
                 player.locationX = 100;
                 player.locationY = 100;
                 player.dist = 1000;
@@ -25,10 +25,10 @@ namespace paintV3
                 {
                     List<rule> playerRules = new List<rule>();
                     {
-                        playerRules.Add(new rule(true, -1, 0, "water"));
-                        playerRules.Add(new rule(false, 0, 0, "water"));
                     }
-                    playerMats.Add(new material("player", 127, 127, 127, 0, false, false, playerRules));
+                    playerMats.Add(new material("player", 184, 197, 203, 0, false, false, playerRules));
+                    playerMats.Add(new material("playerDark", 127, 127, 127, 0, false, false, playerRules));
+                    playerMats.Add(new material("playerTreads", 0, 0, 0, 0, false, false, playerRules));
                     playerMats.Add(new material("transperent", 255, 0, 255, 0, true, false, NoRules));
                 }
                 player.materials = playerMats;
@@ -100,7 +100,6 @@ namespace paintV3
             if (key.D) { foreach (layer lay in GameLayers) { lay.ParalaxMove(camSpeed,0);   } }
             if (key.W) { foreach (layer lay in GameLayers) { lay.ParalaxMove(0,-camSpeed);  } }
             if (key.S) { foreach (layer lay in GameLayers) { lay.ParalaxMove(0,camSpeed);   } }
-
 
         }
     }
