@@ -47,7 +47,7 @@ namespace paintV3
             layer world = new layer();
             {
                 world.source = "Level1.bmp";
-                world.locationX = 0;
+                world.locationX = -1;
                 world.locationY = 0;
                 world.dist = 200;
                 materialList worldMats = new materialList();
@@ -101,7 +101,7 @@ namespace paintV3
             layers.Add(world);
 
 
-            layer bkgrnd = new layer("BgLvl1.bmp", 0, 0, 300);
+            layer bkgrnd = new layer("BgLvl1.bmp", -15, -15, 3000);
                 materialList bkgrndMats = new materialList();
             //   bkgrndMats.Add(new material("black", 0, 0, 0, 30, false, false, NoRules));
             bkgrndMats.Add(new material("lightgrey", 195, 195, 195, 30, false, false, NoRules));
