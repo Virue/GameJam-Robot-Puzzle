@@ -58,3 +58,14 @@ C:\Users\chad1\Music\jimjam\GameJam-Robot-Puzzle\JamBrantch\paintV3\obj\Debug\pa
 C:\Users\chad1\Music\jimjam\GameJam-Robot-Puzzle\JamBrantch\paintV3\obj\Debug\paintV3.csproj.CoreCompileInputs.cache
 C:\Users\chad1\Music\jimjam\GameJam-Robot-Puzzle\JamBrantch\paintV3\obj\Debug\paintV3.exe
 C:\Users\chad1\Music\jimjam\GameJam-Robot-Puzzle\JamBrantch\paintV3\obj\Debug\paintV3.pdb
+D:\GameJam\GameJam-Robot-Puzzle\JamBrantch\paintV3\bin\Debug\paintV3.exe.config
+D:\GameJam\GameJam-Robot-Puzzle\JamBrantch\paintV3\bin\Debug\paintV3.exe
+D:\GameJam\GameJam-Robot-Puzzle\JamBrantch\paintV3\bin\Debug\paintV3.pdb
+D:\GameJam\GameJam-Robot-Puzzle\JamBrantch\paintV3\obj\Debug\paintV3.csproj.AssemblyReference.cache
+D:\GameJam\GameJam-Robot-Puzzle\JamBrantch\paintV3\obj\Debug\paintV3.csproj.SuggestedBindingRedirects.cache
+D:\GameJam\GameJam-Robot-Puzzle\JamBrantch\paintV3\obj\Debug\paintV3.Form1.resources
+D:\GameJam\GameJam-Robot-Puzzle\JamBrantch\paintV3\obj\Debug\paintV3.Properties.Resources.resources
+D:\GameJam\GameJam-Robot-Puzzle\JamBrantch\paintV3\obj\Debug\paintV3.csproj.GenerateResource.cache
+D:\GameJam\GameJam-Robot-Puzzle\JamBrantch\paintV3\obj\Debug\paintV3.csproj.CoreCompileInputs.cache
+D:\GameJam\GameJam-Robot-Puzzle\JamBrantch\paintV3\obj\Debug\paintV3.exe
+D:\GameJam\GameJam-Robot-Puzzle\JamBrantch\paintV3\obj\Debug\paintV3.pdb

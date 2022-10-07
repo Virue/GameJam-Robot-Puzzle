@@ -46,24 +46,22 @@ namespace paintV3
 
             layer world = new layer();
             {
-                world.source = "World.bmp";
+                world.source = "Level1.bmp";
                 world.locationX = 0;
                 world.locationY = 0;
                 world.dist = 200;
                 materialList worldMats = new materialList();
                 {
-                    worldMats.Add(new material("grass", 30, 150, 30, 30, false, false, NoRules));
+                    worldMats.Add(new material("Walls", 0, 0, 0, 30, false, false, NoRules));
+                    worldMats.Add(new material("WoodWalls", 178, 111, 73, 30, false, false, NoRules));
+                    worldMats.Add(new material("Metal", 114, 114, 114, 30, false, false, NoRules));
                     worldMats.Add(new material("transperent", 255, 0, 255, 0, true, true, NoRules));
-                    worldMats.Add(new material("stone", 127, 127, 127, 30, false, false, NoRules));
-                    worldMats.Add(new material("sandStone", 224, 192, 0, 30, false, false, NoRules));
-                    
+                   
                     List<rule> SandRules = new List<rule>();
                     { 
-                    SandRules.Add(new rule(true, 0, -1, "transperent"));
-                    SandRules.Add(new rule(false, 0, -1, "sand"));
-                    SandRules.Add(new rule(false, 0, 0, "transperent"));
+                   
                     }
-                    worldMats.Add(new material("sand", 160, 150, 0, 80, false, false, SandRules));
+                  
 
                     List<rule> waterRules = new List<rule>();
                     {
@@ -85,17 +83,20 @@ namespace paintV3
                         waterRules.Add(new rule(false, 0, 0, "transperent"));
                         waterRules.Add(new rule(false,-1, 0, "water"));
                     }
-                    worldMats.Add(new material("water", 0, 150, 250, 80, false, false, waterRules));
+                    worldMats.Add(new material("water", 0, 162, 232, 80, false, false, waterRules));
                 }
                 world.materials = worldMats;
             }
             layers.Add(world);
 
 
-            layer bkgrnd = new layer( "matt.bmp", 0, 0, 300);
+            layer bkgrnd = new layer("BgLvl1.bmp", 0, 0, 300);
                 materialList bkgrndMats = new materialList();
-                    bkgrndMats.Add(new material("black", 0, 0, 0, 30, false, false, NoRules));
-                bkgrnd.materials = bkgrndMats;
+            //   bkgrndMats.Add(new material("black", 0, 0, 0, 30, false, false, NoRules));
+            bkgrndMats.Add(new material("lightgrey", 195, 195, 195, 30, false, false, NoRules));
+            bkgrndMats.Add(new material("grey", 159, 159, 159, 30, false, false, NoRules));
+
+            bkgrnd.materials = bkgrndMats;
             layers.Add(bkgrnd);
 
         }
