@@ -56,13 +56,24 @@ namespace paintV3
                     worldMats.Add(new material("WoodWalls", 178, 111, 73, 30, false, false, NoRules));
                     worldMats.Add(new material("Metal", 114, 114, 114, 30, false, false, NoRules));
                     worldMats.Add(new material("transperent", 255, 0, 255, 0, true, true, NoRules));
-                   
+                    
                     List<rule> SandRules = new List<rule>();
                     { 
                    
                     }
-                  
-
+                    List<rule> LazerRules = new List<rule>();
+                    {
+                        
+                        LazerRules.Add(new rule(true, 1, 0, "WoodWalls"));  //destroy wall
+                        LazerRules.Add(new rule(false, 0, 0, "transperent"));
+                        LazerRules.Add(new rule(false, 1, 0, "Lazer"));
+                        LazerRules.Add(new rule(true, 1, 0, "transperent"));  //lazer right
+                        LazerRules.Add(new rule(false, 0, 0, "transperent"));
+                        LazerRules.Add(new rule(false, 1, 0, "Lazer"));
+                        LazerRules.Add(new rule(true, 1, 0, "Walls"));  //lazer wall
+                        LazerRules.Add(new rule(false, 0, 0, "transperent"));
+                    }
+                    worldMats.Add(new material("Lazer", 0, 255, 0, 0, false, false, LazerRules));
                     List<rule> waterRules = new List<rule>();
                     {
                         waterRules.Add(new rule(true, 0, 1, "transperent"));  //water down
