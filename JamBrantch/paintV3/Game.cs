@@ -17,7 +17,7 @@ namespace paintV3
 {
     public class Game
     {
-
+        
         public void gameLayers(List<layer> layers) 
         {
 
@@ -66,12 +66,14 @@ namespace paintV3
                         
                         LazerRules.Add(new rule(true, 1, 0, "WoodWalls"));  //destroy wall
                         LazerRules.Add(new rule(false, 0, 0, "transperent"));
+                        LazerRules.Add(new rule(false, 0, 0, "scrLaser"));
                         LazerRules.Add(new rule(false, 1, 0, "Lazer"));
                         LazerRules.Add(new rule(true, 1, 0, "transperent"));  //lazer right
                         LazerRules.Add(new rule(false, 0, 0, "transperent"));
                         LazerRules.Add(new rule(false, 1, 0, "Lazer"));
                         LazerRules.Add(new rule(true, 1, 0, "Walls"));  //lazer wall
                         LazerRules.Add(new rule(false, 0, 0, "transperent"));
+
                     }
                     worldMats.Add(new material("Lazer", 0, 255, 0, 0, false, false, LazerRules));
                     List<rule> waterRules = new List<rule>();
@@ -103,11 +105,10 @@ namespace paintV3
 
             layer bkgrnd = new layer("BgLvl1.bmp", 0, 0, 300);
                 materialList bkgrndMats = new materialList();
-            //   bkgrndMats.Add(new material("black", 0, 0, 0, 30, false, false, NoRules));
-            bkgrndMats.Add(new material("lightgrey", 195, 195, 195, 30, false, false, NoRules));
-            bkgrndMats.Add(new material("grey", 159, 159, 159, 30, false, false, NoRules));
-
-            bkgrnd.materials = bkgrndMats;
+                    //bkgrndMats.Add(new material("black", 0, 0, 0, 30, false, false, NoRules));
+                    bkgrndMats.Add(new material("lightgrey", 195, 195, 195, 30, false, false, NoRules));
+                    bkgrndMats.Add(new material("grey", 159, 159, 159, 30, false, false, NoRules));
+                bkgrnd.materials = bkgrndMats;
             layers.Add(bkgrnd);
 
         }
@@ -131,10 +132,18 @@ namespace paintV3
             if (batteryDecayCounter == 10) {
                 batteryDecayCounter = 0;
                 battery.Height = battery.Height - 1;
-
             }
-            
+
+
+
 
         }
+
+        public void MaterialScript(string Rule) 
+        {
+            if (Rule == "scrLaser") { }
+        
+        }
+        
     }
 }

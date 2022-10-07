@@ -158,24 +158,33 @@ namespace paintV3
                                 }
                                 else if (executeEffect)
                                 {
-                                    foreach (material m in lay.materials.mat_list)
+                                    if (r.name[0] == 's' && r.name[1] == 'c' && r.name[2] == 'r')
                                     {
-                                        if (m.name == r.name)
+                                        game.MaterialScript(r.name);
+                                    }
+                                    else
+                                    {
+                                        foreach (material m in lay.materials.mat_list)
                                         {
-                                            lay.loaded[Xlook + r.conditionX, Ylook + r.conditionY] = l.DoVariation(m.clone(), (int)sw.ElapsedMilliseconds);
-                                            lay.loaded[Xlook + r.conditionX, Ylook + r.conditionY].fired = fireingFrameTracker;
-                                            lay.loaded[Xlook, Ylook].fired = fireingFrameTracker;
-
-                                            if (!lay.loaded[Xlook, Ylook].transparent)
+                                            if (m.name == r.name)
                                             {
-                                                Screen.SetSqr((i + r.conditionX)*scaleX, (j + r.conditionY)*scaleY, scaleX, scaleY, getcolor(lay.loaded[Xlook + r.conditionX, Ylook + r.conditionY]));
+                                                lay.loaded[Xlook + r.conditionX, Ylook + r.conditionY] = l.DoVariation(m.clone(), (int)sw.ElapsedMilliseconds);
+                                                lay.loaded[Xlook + r.conditionX, Ylook + r.conditionY].fired = fireingFrameTracker;
+                                                lay.loaded[Xlook, Ylook].fired = fireingFrameTracker;
+
+                                                if (!lay.loaded[Xlook, Ylook].transparent)
+                                                {
+                                                    Screen.SetSqr((i + r.conditionX) * scaleX, (j + r.conditionY) * scaleY, scaleX, scaleY, getcolor(lay.loaded[Xlook + r.conditionX, Ylook + r.conditionY]));
+                                                }
                                             }
                                         }
                                     }
+
                                 }
                                 prevCondition = r.condition;
                             }
                             else { executeEffect = false; }
+                            
                         }
 
                         if ((!lay.loaded[Xlook, Ylook].transparent))
@@ -208,7 +217,6 @@ namespace paintV3
             return c;
         }
 
-       
 
     }
 }
