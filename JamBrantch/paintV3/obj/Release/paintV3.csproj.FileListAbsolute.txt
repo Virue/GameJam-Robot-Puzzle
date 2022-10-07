@@ -1,0 +1,10 @@
+C:\Users\chad1\Music\C# brantch\engintV2 4email\paintV3\bin\Release\paintV3.exe.config
+C:\Users\chad1\Music\C# brantch\engintV2 4email\paintV3\bin\Release\paintV3.exe
+C:\Users\chad1\Music\C# brantch\engintV2 4email\paintV3\bin\Release\paintV3.pdb
+C:\Users\chad1\Music\C# brantch\engintV2 4email\paintV3\obj\Release\paintV3.csprojAssemblyReference.cache
+C:\Users\chad1\Music\C# brantch\engintV2 4email\paintV3\obj\Release\paintV3.Form1.resources
+C:\Users\chad1\Music\C# brantch\engintV2 4email\paintV3\obj\Release\paintV3.Properties.Resources.resources
+C:\Users\chad1\Music\C# brantch\engintV2 4email\paintV3\obj\Release\paintV3.csproj.GenerateResource.cache
+C:\Users\chad1\Music\C# brantch\engintV2 4email\paintV3\obj\Release\paintV3.csproj.CoreCompileInputs.cache
+C:\Users\chad1\Music\C# brantch\engintV2 4email\paintV3\obj\Release\paintV3.exe
+C:\Users\chad1\Music\C# brantch\engintV2 4email\paintV3\obj\Release\paintV3.pdb
