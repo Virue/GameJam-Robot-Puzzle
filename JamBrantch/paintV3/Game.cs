@@ -82,7 +82,27 @@ namespace paintV3
                         BatteryRules.Add(new rule(true, 1, 0, "Player"));  //
                         BatteryRules.Add(new rule(false, 0, 0, "transperent"));
                     }
+
                     worldMats.Add(new material("Battery", 255, 255, 0, 80, false, false, BatteryRules));
+
+                    List<rule> Fire1Rules = new List<rule>();
+                    {
+                        Fire1Rules.Add(new rule(true, 1, 0, "WoodWalls"));
+                        Fire1Rules.Add(new rule(false, 0, 0, "Fire1"));
+                        Fire1Rules.Add(new rule(true, 0, 1, "WoodWalls"));
+                        Fire1Rules.Add(new rule(false, 0, 0, "Fire1"));
+                        Fire1Rules.Add(new rule(true, 1, 1, "WoodWalls"));
+                        Fire1Rules.Add(new rule(false, 0, 0, "Fire1"));
+                        Fire1Rules.Add(new rule(true, -1, 0, "WoodWalls"));
+                        Fire1Rules.Add(new rule(false, 0, 0, "Fire1"));
+                        Fire1Rules.Add(new rule(true, 0, -1, "WoodWalls"));
+                        Fire1Rules.Add(new rule(false, 0, 0, "Fire1"));
+                        Fire1Rules.Add(new rule(true, -1, -1, "WoodWalls"));
+                        Fire1Rules.Add(new rule(false, 0, 0, "Fire1"));
+                        Fire1Rules.Add(new rule(true, 0, 0, "Fire1"));
+                        Fire1Rules.Add(new rule(false, 0, 0, "Fire2"));
+                    }
+                    worldMats.Add(new material("Fire1", 255, 0, 0, 0, false, false, Fire1Rules));
 
                     List<rule> waterRules = new List<rule>();
                     {
