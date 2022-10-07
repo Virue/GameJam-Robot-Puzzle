@@ -3,6 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.ComponentModel;
+using System.Data;
+using System.Windows.Forms;
+using System.Diagnostics;
+using System.Drawing;
+using System.Drawing.Drawing2D;
+using System.Windows.Media.Imaging;
+
+
 
 namespace paintV3
 {
@@ -92,7 +101,7 @@ namespace paintV3
         }
 
         public void startup() { }
-        public void update(List<layer> GameLayers, Imputs key) 
+        public void update(List<layer> GameLayers, Imputs key , PictureBox battery) 
         {
             int camSpeed = 200;
 
@@ -100,6 +109,10 @@ namespace paintV3
             if (key.D) { foreach (layer lay in GameLayers) { lay.ParalaxMove(camSpeed,0);   } }
             if (key.W) { foreach (layer lay in GameLayers) { lay.ParalaxMove(0,-camSpeed);  } }
             if (key.S) { foreach (layer lay in GameLayers) { lay.ParalaxMove(0,camSpeed);   } }
+
+            
+
+
 
         }
     }
