@@ -210,6 +210,17 @@ namespace paintV3
                         waterRules.Add(new rule(false, -1, 0, "water"));
                     }
                     worldMats.Add(new material("water", 0, 162, 232, 80, false, false, waterRules));
+
+                    List<rule> FlagRules = new List<rule>();
+                    {
+                        //FlagRules.Add(new rule());
+                        //FlagRules.Add(new rule());
+                        //FlagRules.Add(new rule());
+
+                    }
+                    worldMats.Add(new material("Flag",237,28,36,20,false,false, FlagRules)); //red bit
+                    worldMats.Add(new material("Flag", 195, 195, 195, 20, false, false, FlagRules)); //Grey pole bit
+                    worldMats.Add(new material("Flag", 127, 127, 127, 20, false, false, FlagRules)); //dark grey bottom bit
                 }
                 world.materials = worldMats;
             }
