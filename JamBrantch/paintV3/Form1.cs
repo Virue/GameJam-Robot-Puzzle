@@ -138,6 +138,8 @@ namespace paintV3
 
                         bool prevCondition = false;
                         bool executeEffect = true;
+                        bool exptScr = false;
+
 
                         foreach (rule r in lay.loaded[Xlook, Ylook].rules)
                         {
@@ -155,6 +157,7 @@ namespace paintV3
 
                                     if (prevCondition != r.condition) { executeEffect = false; }
 
+
                                     foreach (layer DepthChk in l.layerlist)
                                     {
 
@@ -168,11 +171,10 @@ namespace paintV3
                                             { executeEffect = true; }
                                         }
                                     }
-
-
+                                    exptScr = executeEffect;
                                     if (fireingFrameTracker == lay.loaded[Xlook, Ylook].fired) { executeEffect = false; }
                                 }
-                                else if (executeEffect)
+                                else if (executeEffect || (exptScr && r.name[0] == 's' && r.name[1] == 'c' && r.name[2] == 'r'))
                                 {
                                     if (r.name[0] == 's' && r.name[1] == 'c' && r.name[2] == 'r')
                                     {
@@ -185,7 +187,7 @@ namespace paintV3
                                         {
                                             lay.loaded[Xlook + r.conditionX, Ylook + r.conditionY] = l.DoVariation(m.clone(), (int)sw.ElapsedMilliseconds);
                                             lay.loaded[Xlook + r.conditionX, Ylook + r.conditionY].fired = fireingFrameTracker;
-                                            lay.loaded[Xlook, Ylook].fired = fireingFrameTracker;
+                                            //lay.loaded[Xlook, Ylook].fired = fireingFrameTracker;
 
                                             if (!lay.loaded[Xlook, Ylook].transparent)
                                             {
