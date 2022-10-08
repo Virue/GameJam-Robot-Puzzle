@@ -104,10 +104,12 @@ namespace paintV3
                     List<rule> BatteryRules = new List<rule>();
                     {
                         BatteryRules.Add(new rule(true, 1, 0, "Player"));  //
+                        BatteryRules.Add(new rule(false, 0, 0, "scrBattery"));
                         BatteryRules.Add(new rule(false, 0, 0, "transperent"));
                     }
 
-                    worldMats.Add(new material("Battery", 255, 255, 0, 80, false, false, BatteryRules));
+                    worldMats.Add(new material("Battery", 239, 228, 176, 10, false, false, BatteryRules));
+                    worldMats.Add(new material("Battery", 255, 201, 14, 10, false, false, BatteryRules));
 
                     List<rule> Fire1Rules = new List<rule>();
                     {
@@ -125,6 +127,10 @@ namespace paintV3
                         Fire1Rules.Add(new rule(false, -1, -1, "Fire1"));
                         Fire1Rules.Add(new rule(true, 0, 0, "Fire1"));//check if fire
                         Fire1Rules.Add(new rule(false, 0, 0, "Fire2"));
+
+                    }
+                    List<rule> Fire2Rules = new List<rule>();
+                    {
                         Fire1Rules.Add(new rule(true, 0, 0, "Fire2"));
                         Fire1Rules.Add(new rule(false, 0, 0, "Fire3"));
                         Fire1Rules.Add(new rule(true, 0, 0, "Fire3"));
@@ -149,17 +155,17 @@ namespace paintV3
                         Fire1Rules.Add(new rule(false, 0, 0, "Smoke"));
                     }
                     worldMats.Add(new material("Fire1", 255, 0, 0, 0, false, false, Fire1Rules));
-                    worldMats.Add(new material("Fire2", 255, 25, 0, 0, false, false, Fire1Rules));
-                    worldMats.Add(new material("Fire3", 255, 50, 0, 0, false, false, Fire1Rules));
-                    worldMats.Add(new material("Fire4", 255, 100, 0, 0, false, false, Fire1Rules));
-                    worldMats.Add(new material("Fire5", 255, 125, 0, 0, false, false, Fire1Rules));
-                    worldMats.Add(new material("Fire6", 255, 150, 0, 0, false, false, Fire1Rules));
-                    worldMats.Add(new material("Fire7", 255, 175, 0, 0, false, false, Fire1Rules));
-                    worldMats.Add(new material("Fire8", 255, 200, 0, 0, false, false, Fire1Rules));
-                    worldMats.Add(new material("Fire9", 255, 225, 0, 0, false, false, Fire1Rules));
-                    worldMats.Add(new material("Fire10", 255, 250, 0, 0, false, false, Fire1Rules));
-                    worldMats.Add(new material("Fire11", 255, 255, 0, 0, false, false, Fire1Rules));
-                    worldMats.Add(new material("Fire12", 255, 255, 0, 0, false, false, Fire1Rules));
+                    worldMats.Add(new material("Fire2", 255, 25, 0, 0, false, false, Fire2Rules));
+                    worldMats.Add(new material("Fire3", 255, 50, 0, 0, false, false, Fire2Rules));
+                    worldMats.Add(new material("Fire4", 255, 100, 0, 0, false, false, Fire2Rules));
+                    worldMats.Add(new material("Fire5", 255, 125, 0, 0, false, false, Fire2Rules));
+                    worldMats.Add(new material("Fire6", 255, 150, 0, 0, false, false, Fire2Rules));
+                    worldMats.Add(new material("Fire7", 255, 175, 0, 0, false, false, Fire2Rules));
+                    worldMats.Add(new material("Fire8", 255, 200, 0, 0, false, false, Fire2Rules));
+                    worldMats.Add(new material("Fire9", 255, 225, 0, 0, false, false, Fire2Rules));
+                    worldMats.Add(new material("Fire10", 255, 250, 0, 0, false, false, Fire2Rules));
+                    worldMats.Add(new material("Fire11", 255, 255, 0, 0, false, false, Fire2Rules));
+                    worldMats.Add(new material("Fire12", 255, 255, 0, 0, false, false, Fire2Rules));
 
                     List<rule> SmokeRules = new List<rule>();
                     {
