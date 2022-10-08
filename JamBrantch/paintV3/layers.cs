@@ -15,6 +15,7 @@ namespace paintV3
     {
         public int dist;
         public string source;
+        public string name = "";
         public double locationX;
         public double locationY;
         public double height = 1;
