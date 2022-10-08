@@ -12,11 +12,6 @@ namespace paintV3
         public bool A;
         public bool S;
         public bool D;
-
-        public bool E;
-        public bool Q;
-        public bool R;
-
         public Imputs() { }
     }
 }

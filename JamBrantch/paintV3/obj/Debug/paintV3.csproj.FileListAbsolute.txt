@@ -89,13 +89,3 @@ C:\Users\nicho\OneDrive\Documents\GitHub\GameJam-Robot-Puzzle\JamBrantch\paintV3
 C:\Users\nicho\OneDrive\Documents\GitHub\GameJam-Robot-Puzzle\JamBrantch\paintV3\obj\Debug\paintV3.csproj.CoreCompileInputs.cache
 C:\Users\nicho\OneDrive\Documents\GitHub\GameJam-Robot-Puzzle\JamBrantch\paintV3\obj\Debug\paintV3.exe
 C:\Users\nicho\OneDrive\Documents\GitHub\GameJam-Robot-Puzzle\JamBrantch\paintV3\obj\Debug\paintV3.pdb
-D:\jamjam\GameJam-Robot-Puzzle\JamBrantch\paintV3\bin\Debug\paintV3.exe.config
-D:\jamjam\GameJam-Robot-Puzzle\JamBrantch\paintV3\bin\Debug\paintV3.exe
-D:\jamjam\GameJam-Robot-Puzzle\JamBrantch\paintV3\bin\Debug\paintV3.pdb
-D:\jamjam\GameJam-Robot-Puzzle\JamBrantch\paintV3\obj\Debug\paintV3.csprojAssemblyReference.cache
-D:\jamjam\GameJam-Robot-Puzzle\JamBrantch\paintV3\obj\Debug\paintV3.Form1.resources
-D:\jamjam\GameJam-Robot-Puzzle\JamBrantch\paintV3\obj\Debug\paintV3.Properties.Resources.resources
-D:\jamjam\GameJam-Robot-Puzzle\JamBrantch\paintV3\obj\Debug\paintV3.csproj.GenerateResource.cache
-D:\jamjam\GameJam-Robot-Puzzle\JamBrantch\paintV3\obj\Debug\paintV3.csproj.CoreCompileInputs.cache
-D:\jamjam\GameJam-Robot-Puzzle\JamBrantch\paintV3\obj\Debug\paintV3.exe
-D:\jamjam\GameJam-Robot-Puzzle\JamBrantch\paintV3\obj\Debug\paintV3.pdb

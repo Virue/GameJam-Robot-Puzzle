@@ -39,11 +39,6 @@ namespace paintV3
             if (e.KeyCode == Keys.D) { keys.D = false; }
             if (e.KeyCode == Keys.W) { keys.W = false; }
             if (e.KeyCode == Keys.S) { keys.S = false; }
-            if (e.KeyCode == Keys.Q) { keys.Q = false; }
-            if (e.KeyCode == Keys.E) { keys.E = false; }
-            if (e.KeyCode == Keys.R) { keys.R = false; }
-
-
         }
         private void keydown(object sender, KeyEventArgs e)
         {
@@ -51,9 +46,6 @@ namespace paintV3
             if (e.KeyCode == Keys.D) { keys.D = true; }
             if (e.KeyCode == Keys.W) { keys.W = true; }
             if (e.KeyCode == Keys.S) { keys.S = true; }
-            if (e.KeyCode == Keys.Q) { keys.Q = true; }
-            if (e.KeyCode == Keys.E) { keys.E = true; }
-            if (e.KeyCode == Keys.R) { keys.R = true; }
         }
 
         public Form1()
@@ -158,33 +150,24 @@ namespace paintV3
                                 }
                                 else if (executeEffect)
                                 {
-                                    if (r.name[0] == 's' && r.name[1] == 'c' && r.name[2] == 'r')
+                                    foreach (material m in lay.materials.mat_list)
                                     {
-                                        game.MaterialScript(r.name);
-                                    }
-                                    else
-                                    {
-                                        foreach (material m in lay.materials.mat_list)
+                                        if (m.name == r.name)
                                         {
-                                            if (m.name == r.name)
-                                            {
-                                                lay.loaded[Xlook + r.conditionX, Ylook + r.conditionY] = l.DoVariation(m.clone(), (int)sw.ElapsedMilliseconds);
-                                                lay.loaded[Xlook + r.conditionX, Ylook + r.conditionY].fired = fireingFrameTracker;
-                                                lay.loaded[Xlook, Ylook].fired = fireingFrameTracker;
+                                            lay.loaded[Xlook + r.conditionX, Ylook + r.conditionY] = l.DoVariation(m.clone(), (int)sw.ElapsedMilliseconds);
+                                            lay.loaded[Xlook + r.conditionX, Ylook + r.conditionY].fired = fireingFrameTracker;
+                                            lay.loaded[Xlook, Ylook].fired = fireingFrameTracker;
 
-                                                if (!lay.loaded[Xlook, Ylook].transparent)
-                                                {
-                                                    Screen.SetSqr((i + r.conditionX) * scaleX, (j + r.conditionY) * scaleY, scaleX, scaleY, getcolor(lay.loaded[Xlook + r.conditionX, Ylook + r.conditionY]));
-                                                }
+                                            if (!lay.loaded[Xlook, Ylook].transparent)
+                                            {
+                                                Screen.SetSqr((i + r.conditionX)*scaleX, (j + r.conditionY)*scaleY, scaleX, scaleY, getcolor(lay.loaded[Xlook + r.conditionX, Ylook + r.conditionY]));
                                             }
                                         }
                                     }
-
                                 }
                                 prevCondition = r.condition;
                             }
                             else { executeEffect = false; }
-                            
                         }
 
                         if ((!lay.loaded[Xlook, Ylook].transparent))
@@ -217,6 +200,7 @@ namespace paintV3
             return c;
         }
 
+       
 
     }
 }
