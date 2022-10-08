@@ -45,7 +45,28 @@ namespace paintV3
                 player.materials = playerMats;
             }
             layers.Add(player);
+            //Battery Outline
+            layer BatteryOutline = new layer();
+            {
+                BatteryOutline.name = "BatteryOutline";
+                BatteryOutline.source = "BatteryOutline.bmp";
+                BatteryOutline.locationX = 0;
+                BatteryOutline.locationY = 5;
+                BatteryOutline.dist = 100000000;
 
+                materialList BatteryOutlineMats = new materialList();
+                {
+                    List<rule> BatteryOutlineRules = new List<rule>();
+                    {
+
+                    }
+                    BatteryOutlineMats.Add(new material("BatteryOutline", 127, 127, 127, 0, false, false, BatteryOutlineRules));
+                    BatteryOutlineMats.Add(new material("BatteryBG", 0, 0, 0, 0, false, false, BatteryOutlineRules));
+                    BatteryOutlineMats.Add(new material("transperent", 255, 0, 255, 0, true, false, NoRules));
+                }
+                BatteryOutline.materials = BatteryOutlineMats;
+            }
+            layers.Add(BatteryOutline);
             layer world = new layer();
             {
                 world.source = "Level1.bmp";
