@@ -112,16 +112,15 @@ namespace paintV3
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            game.update(l.layerlist, keys , pictureBox2);
-
+            
             fireingFrameTracker = !fireingFrameTracker;
             frames++;
             label1.Text = (sw.ElapsedMilliseconds / frames).ToString();
 
             
-            Parallel.ForEach(ListOPixels, k => {
+            //Parallel.ForEach(ListOPixels, k => {
 
-            //foreach (int k in ListOPixels){
+            foreach (int k in ListOPixels){
 
 
                 int i = k % (CamXRes);
@@ -130,7 +129,6 @@ namespace paintV3
                 foreach (layer lay in l.layerlist)
                 {
                     
-
                     int Xlook = (i - (int)Math.Round(lay.locationX));
                     int Ylook = (j - (int)Math.Round(lay.locationY));
 
@@ -152,8 +150,26 @@ namespace paintV3
 
                                 if (r.condition)
                                 {
-                                    if (prevCondition != r.condition) { executeEffect = true; }
-                                    if (!(lay.loaded[Xlook + r.conditionX, Ylook + r.conditionY].name == r.name)) { executeEffect = false; }
+                                    if (r.name == "playerTreads") 
+                                    { if (true) { } }
+
+                                    if (prevCondition != r.condition) { executeEffect = false; }
+
+                                    foreach (layer DepthChk in l.layerlist)
+                                    {
+
+                                        int innerXlook = (i - (int)Math.Round(DepthChk.locationX));
+                                        int innerYlook = (j - (int)Math.Round(DepthChk.locationY));
+
+                                        if ((DepthChk.width - 1 > innerXlook + r.conditionX && innerXlook + r.conditionX > 0) &&
+                                            (DepthChk.height - 1 > innerYlook + r.conditionY && innerYlook + r.conditionY > 0))
+                                        {
+                                            if ((DepthChk.loaded[innerXlook + r.conditionX, innerYlook + r.conditionY].name == r.name)) 
+                                            { executeEffect = true; }
+                                        }
+                                    }
+
+
                                     if (fireingFrameTracker == lay.loaded[Xlook, Ylook].fired) { executeEffect = false; }
                                 }
                                 else if (executeEffect)
@@ -162,23 +178,22 @@ namespace paintV3
                                     {
                                         game.MaterialScript(r.name);
                                     }
-                                    else
+                                    
+                                    foreach (material m in lay.materials.mat_list)
                                     {
-                                        foreach (material m in lay.materials.mat_list)
+                                        if (m.name == r.name)
                                         {
-                                            if (m.name == r.name)
-                                            {
-                                                lay.loaded[Xlook + r.conditionX, Ylook + r.conditionY] = l.DoVariation(m.clone(), (int)sw.ElapsedMilliseconds);
-                                                lay.loaded[Xlook + r.conditionX, Ylook + r.conditionY].fired = fireingFrameTracker;
-                                                lay.loaded[Xlook, Ylook].fired = fireingFrameTracker;
+                                            lay.loaded[Xlook + r.conditionX, Ylook + r.conditionY] = l.DoVariation(m.clone(), (int)sw.ElapsedMilliseconds);
+                                            lay.loaded[Xlook + r.conditionX, Ylook + r.conditionY].fired = fireingFrameTracker;
+                                            lay.loaded[Xlook, Ylook].fired = fireingFrameTracker;
 
-                                                if (!lay.loaded[Xlook, Ylook].transparent)
-                                                {
-                                                    Screen.SetSqr((i + r.conditionX) * scaleX, (j + r.conditionY) * scaleY, scaleX, scaleY, getcolor(lay.loaded[Xlook + r.conditionX, Ylook + r.conditionY]));
-                                                }
+                                            if (!lay.loaded[Xlook, Ylook].transparent)
+                                            {
+                                                Screen.SetSqr((i + r.conditionX) * scaleX, (j + r.conditionY) * scaleY, scaleX, scaleY, getcolor(lay.loaded[Xlook + r.conditionX, Ylook + r.conditionY]));
                                             }
                                         }
                                     }
+                                    
 
                                 }
                                 prevCondition = r.condition;
@@ -200,9 +215,12 @@ namespace paintV3
                 callItADay:
                 if (true) { }
 
-            //} //4 da 4 each
-            });
-            
+            } //4 da 4 each
+            //});
+
+            game.update(l.layerlist, keys, pictureBox2);
+
+
             pictureBox1.Image = Screen.Bitmap;
 
         }

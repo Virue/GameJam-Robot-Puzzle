@@ -47,20 +47,25 @@ namespace paintV3
             layer world = new layer();
             {
                 world.source = "Level1.bmp";
-                world.locationX = 0;
-                world.locationY = 0;
+                world.locationX = 90;
+                world.locationY = 95;
                 world.dist = 200;
                 materialList worldMats = new materialList();
                 {
-                    worldMats.Add(new material("Walls", 0, 0, 0, 30, false, false, NoRules));
+
+                    List<rule> WallsRules = new List<rule>();
+                    {
+                        WallsRules.Add(new rule(true, 0, -1, "playerTreads"));
+                        WallsRules.Add(new rule(false, 0, 0, "scrPlayerGrnd"));
+                    }
+
+                    worldMats.Add(new material("Walls", 0, 0, 0, 30, false, false, WallsRules));
                     worldMats.Add(new material("WoodWalls", 178, 111, 73, 30, false, false, NoRules));
                     worldMats.Add(new material("Metal", 114, 114, 114, 30, false, false, NoRules));
                     worldMats.Add(new material("transperent", 255, 0, 255, 0, true, true, NoRules));
                     
-                    List<rule> SandRules = new List<rule>();
-                    { 
-                   
-                    }
+
+
                     List<rule> LazerRules = new List<rule>();
                     {
                         
@@ -111,7 +116,7 @@ namespace paintV3
             layers.Add(world);
 
 
-            layer bkgrnd = new layer("BgLvl1.bmp", 0, 0, 3000);
+            layer bkgrnd = new layer("BgLvl1.bmp", -15, -15, 3000);
                 materialList bkgrndMats = new materialList();
                     //bkgrndMats.Add(new material("black", 0, 0, 0, 30, false, false, NoRules));
                     bkgrndMats.Add(new material("lightgrey", 195, 195, 195, 30, false, false, NoRules));
@@ -123,6 +128,14 @@ namespace paintV3
 
         int batteryDecayCounter = 0;
 
+
+        bool CanMoveLeft = true;
+        bool CanMoveRight = true;
+        bool CanMoveUp = true;
+        bool CanMoveDown = true;
+
+        bool Fired;
+
         public void startup(PictureBox battery) 
         {
             
@@ -131,10 +144,10 @@ namespace paintV3
         {
             int camSpeed = 200;
 
-            if (key.A) { foreach (layer lay in GameLayers) { lay.ParalaxMove(-camSpeed,0);  } }
-            if (key.D) { foreach (layer lay in GameLayers) { lay.ParalaxMove(camSpeed,0);   } }
-            if (key.W) { foreach (layer lay in GameLayers) { lay.ParalaxMove(0,-camSpeed);  } }
-            if (key.S) { foreach (layer lay in GameLayers) { lay.ParalaxMove(0,camSpeed);   } }
+            if (key.A && CanMoveLeft ) { foreach (layer lay in GameLayers) { lay.ParalaxMove(-camSpeed,0);  } }
+            if (key.D && CanMoveRight) { foreach (layer lay in GameLayers) { lay.ParalaxMove(camSpeed,0);   } }
+            if (key.W && CanMoveUp   ) { foreach (layer lay in GameLayers) { lay.ParalaxMove(0,-camSpeed);  } }
+            if (key.S && CanMoveDown ) { foreach (layer lay in GameLayers) { lay.ParalaxMove(0,camSpeed);   } }
 
             batteryDecayCounter ++;
             if (batteryDecayCounter == 10) {
@@ -143,13 +156,20 @@ namespace paintV3
             }
 
 
-
+            //upkeep
+            Fired = !Fired;
+            if (!CanMoveDown && Fired) {
+                CanMoveDown = true; 
+            }            
 
         }
 
         public void MaterialScript(string Rule) 
         {
-            if (Rule == "scrLaser") { }
+            if (Rule == "scrPlayerGrnd") 
+            {
+                CanMoveDown = false;
+            }
         
         }
         
