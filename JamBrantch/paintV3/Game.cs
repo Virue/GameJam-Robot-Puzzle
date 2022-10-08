@@ -104,12 +104,49 @@ namespace paintV3
                     {
                         BatteryRules.Add(new rule(true, 0, 0, "player"));
                         BatteryRules.Add(new rule(false, 0, 0, "scrBattery"));
-                        BatteryRules.Add(new rule(false, 0, 0, "transperent"));
+                        BatteryRules.Add(new rule(false, 0, 0, "BatteryKill"));
+                        BatteryRules.Add(new rule(true, 1, 0, "player"));
+                        BatteryRules.Add(new rule(false, 0, 0, "scrBattery"));
+                        BatteryRules.Add(new rule(false, 0, 0, "BatteryKill"));
+                        BatteryRules.Add(new rule(true, 0, 1, "player"));
+                        BatteryRules.Add(new rule(false, 0, 0, "scrBattery"));
+                        BatteryRules.Add(new rule(false, 0, 0, "BatteryKill"));
+                        BatteryRules.Add(new rule(true, 1, 1, "player"));
+                        BatteryRules.Add(new rule(false, 0, 0, "scrBattery"));
+                        BatteryRules.Add(new rule(false, 0, 0, "BatteryKill"));
+                        BatteryRules.Add(new rule(true, -1, 0, "player"));
+                        BatteryRules.Add(new rule(false, 0, 0, "scrBattery"));
+                        BatteryRules.Add(new rule(false, 0, 0, "BatteryKill"));
+                        BatteryRules.Add(new rule(true, 0, -1, "player"));
+                        BatteryRules.Add(new rule(false, 0, 0, "scrBattery"));
+                        BatteryRules.Add(new rule(false, 0, 0, "BatteryKill"));
+                        BatteryRules.Add(new rule(true, -1, -1, "player"));
+                        BatteryRules.Add(new rule(false, 0, 0, "scrBattery"));
+                        BatteryRules.Add(new rule(false, 0, 0, "BatteryKill"));
+
+                    }
+                    List<rule> BatteryKillRules = new List<rule>();
+                    {
+                        BatteryKillRules.Add(new rule(true, 1, 0, "Battery"));
+                        BatteryKillRules.Add(new rule(false, 1, 0, "BatteryKill"));
+                        BatteryKillRules.Add(new rule(true, 0, 1, "Battery"));
+                        BatteryKillRules.Add(new rule(false, 0, 1, "BatteryKill"));
+                        BatteryKillRules.Add(new rule(true, 1, 1, "Battery"));
+                        BatteryKillRules.Add(new rule(false, 1, 1, "BatteryKill"));
+                        BatteryKillRules.Add(new rule(true, -1, 0, "Battery"));
+                        BatteryKillRules.Add(new rule(false, -1, 0, "BatteryKill"));
+                        BatteryKillRules.Add(new rule(true, 0, -1, "Battery"));
+                        BatteryKillRules.Add(new rule(false, 0, -1, "BatteryKill"));
+                        BatteryKillRules.Add(new rule(true, -1, -1, "Battery"));
+                        BatteryKillRules.Add(new rule(false, -1, -1, "BatteryKill"));
+                        BatteryKillRules.Add(new rule(true, 0, 0, "BatteryKill"));
+                        BatteryKillRules.Add(new rule(false, 0, 0, "Smoke"));
                     }
 
                     worldMats.Add(new material("Battery", 239, 228, 176, 10, false, false, BatteryRules));
                     worldMats.Add(new material("Battery", 255, 201, 14, 10, false, false, BatteryRules));
-                    worldMats.Add(new material("Battery", 255, 255, 0, 10, false, false, BatteryRules));
+                    worldMats.Add(new material("Battery", 255, 242, 0, 10, false, false, BatteryRules));
+                    worldMats.Add(new material("BatteryKill", 100, 100, 100, 10, false, false, BatteryKillRules));
 
                     List<rule> Fire1Rules = new List<rule>();
                     {
@@ -287,12 +324,12 @@ namespace paintV3
 
             if (collectedBattery > 0) 
             {
-                collectedBattery -= 10;
-                battery.Height += 10;
+                collectedBattery -= 2;
+                battery.Height += 2;
             }
 
             batteryDecayCounter++;
-            if (batteryDecayCounter == 10)
+            if (batteryDecayCounter == 5)
             {
                 batteryDecayCounter = 0;
                 battery.Height = battery.Height - 1;
@@ -366,7 +403,7 @@ namespace paintV3
 
             if (Rule == "scrBattery") 
             {
-                collectedBattery += 10;
+                collectedBattery += 2;
             }
 
 
