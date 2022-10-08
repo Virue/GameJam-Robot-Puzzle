@@ -277,8 +277,9 @@ namespace paintV3
             layer bkgrnd = new layer("BgLvl1.bmp", 25, -75, 200);
             materialList bkgrndMats = new materialList();
             //   bkgrndMats.Add(new material("black", 0, 0, 0, 30, false, false, NoRules));
-            bkgrndMats.Add(new material("lightgrey", 195, 195, 195, 30, false, false, NoRules));
-            bkgrndMats.Add(new material("grey", 159, 159, 159, 30, false, false, NoRules));
+            bkgrndMats.Add(new material("lightgrey", 195, 195, 195, 30, false, false, NoRules));//in it
+            bkgrndMats.Add(new material("lightergrey", 127, 127, 127, 30, false, false, NoRules)); //in it
+            //bkgrndMats.Add(new material("grey", 159, 159, 159, 30, false, false, NoRules)); dont add back in
             bkgrndMats.Add(new material("Sky", 153, 217, 234, 30, false, false, NoRules));
             bkgrndMats.Add(new material("Building1", 200, 191, 231, 30, false, false, NoRules));
             bkgrndMats.Add(new material("Building2", 112, 146, 190, 30, false, false, NoRules));
