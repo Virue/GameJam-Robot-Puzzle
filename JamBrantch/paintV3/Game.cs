@@ -127,18 +127,7 @@ namespace paintV3
                     }
                     List<rule> BatteryKillRules = new List<rule>();
                     {
-                        BatteryKillRules.Add(new rule(true, 1, 0, "Battery"));
-                        BatteryKillRules.Add(new rule(false, 1, 0, "BatteryKill"));
-                        BatteryKillRules.Add(new rule(true, 0, 1, "Battery"));
-                        BatteryKillRules.Add(new rule(false, 0, 1, "BatteryKill"));
-                        BatteryKillRules.Add(new rule(true, 1, 1, "Battery"));
-                        BatteryKillRules.Add(new rule(false, 1, 1, "BatteryKill"));
-                        BatteryKillRules.Add(new rule(true, -1, 0, "Battery"));
-                        BatteryKillRules.Add(new rule(false, -1, 0, "BatteryKill"));
-                        BatteryKillRules.Add(new rule(true, 0, -1, "Battery"));
-                        BatteryKillRules.Add(new rule(false, 0, -1, "BatteryKill"));
-                        BatteryKillRules.Add(new rule(true, -1, -1, "Battery"));
-                        BatteryKillRules.Add(new rule(false, -1, -1, "BatteryKill"));
+                        
                         BatteryKillRules.Add(new rule(true, 0, 0, "BatteryKill"));
                         BatteryKillRules.Add(new rule(false, 0, 0, "Smoke"));
                     }
@@ -285,6 +274,7 @@ namespace paintV3
 
         int batteryDecayCounter = 0;
         int collectedBattery = 0;
+      
 
         bool CanMoveLeft = true;
         bool CanMoveRight = true;
@@ -308,9 +298,11 @@ namespace paintV3
 
             if (key.W && canJump){
                 jumping = true; canJump = false; jump = -200;
+                collectedBattery -= 10;
             }
             else{
-                if ( (!CanMoveDown) && (jump>0)) { jumping = false; canJump = true; jump = 0; } 
+                if ( (!CanMoveDown) && (jump>0)) { jumping = false; canJump = true; jump = 0; }
+                
             }
 
             if (jumping && (jump<200)) { jump += 5; }
@@ -318,17 +310,26 @@ namespace paintV3
             if (CanMoveDown || (jump < 0)) { foreach (layer lay in GameLayers) { lay.ParalaxMove(0, jump); } }    
             if (!jumping && CanMoveDown) { foreach (layer lay in GameLayers) { lay.ParalaxMove(0, 200); } }
 
-            if (key.A && CanMoveLeft) { foreach (layer lay in GameLayers) { lay.ParalaxMove(-camSpeed, 0); } }
-            if (key.D && CanMoveRight) { foreach (layer lay in GameLayers) { lay.ParalaxMove(camSpeed, 0); } }
+            if (key.A && CanMoveLeft) { foreach (layer lay in GameLayers) { lay.ParalaxMove(-camSpeed, 0); } batteryDecayCounter++; }
+            if (key.D && CanMoveRight) { foreach (layer lay in GameLayers) { lay.ParalaxMove(camSpeed, 0); } batteryDecayCounter++; }
             //if (key.S && CanMoveDown) { foreach (layer lay in GameLayers) { lay.ParalaxMove(0, camSpeed); } }
 
-            if (collectedBattery > 0) 
+            if (collectedBattery != 0) 
             {
-                collectedBattery -= 2;
-                battery.Height += 2;
+                if(collectedBattery < 0)
+                {
+                    collectedBattery += 1;
+                    battery.Height -= 1;
+                    
+                }
+                if (collectedBattery > 0)
+                {
+                    collectedBattery -= 1;
+                    battery.Height += 1;
+                }
             }
 
-            batteryDecayCounter++;
+            
             if (batteryDecayCounter == 5)
             {
                 batteryDecayCounter = 0;
@@ -403,7 +404,7 @@ namespace paintV3
 
             if (Rule == "scrBattery") 
             {
-                collectedBattery += 2;
+                collectedBattery += 1;
             }
 
 
