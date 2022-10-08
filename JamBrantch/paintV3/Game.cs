@@ -23,6 +23,7 @@ namespace paintV3
 
             List<rule> NoRules = new List<rule>();
 
+
             layer player = new layer();
             {
                 player.name = "player";
@@ -260,7 +261,7 @@ namespace paintV3
                     List<rule> FlagRules = new List<rule>();
                     {
                         FlagRules.Add(new rule(true, -1,0, "player"));//player to the left of the flag
-
+                        FlagRules.Add(new rule(false, 0, 0, "scrFlag"));
                         
 
                     }
@@ -306,7 +307,7 @@ namespace paintV3
         bool CanMoveLeft = true;
         bool CanMoveRight = true;
         bool CanMoveDown = true;
-
+        
 
         public void startup(PictureBox battery)
         {
@@ -316,7 +317,7 @@ namespace paintV3
         bool canJump = true;
         bool jumping = true;
         int jump = 0;
-
+        bool won = false;
         public void update(List<layer> GameLayers, Imputs key, PictureBox battery)
         {
 
@@ -392,9 +393,30 @@ namespace paintV3
                     }
                 }
             }
-            
-                
 
+            if (won == true)
+            {
+                layer win = new layer();
+                {
+                    win.name = "win";
+                    win.source = "You Win.bmp";
+                    win.locationX = 4423;
+                    win.locationY = 539;
+                    win.dist = 1000000000;
+
+                    materialList winMats = new materialList();
+                    {
+                        List<rule> NoRules = new List<rule>();
+                        winMats.Add(new material("win", 255, 242, 0, 0, false, false, NoRules));
+                        winMats.Add(new material("win", 0, 0, 0, 0, false, false, NoRules));
+                        //  winMats.Add(new material("transperent", 255, 0, 255, 0, true, false, NoRules));
+                    }
+                    win.materials = winMats;
+                }
+                GameLayers.Clear();
+                GameLayers.Add(win);
+                won = false;
+            }
 
 
             //upkeep
@@ -441,9 +463,13 @@ namespace paintV3
                 if (collectedBattery < 150)
                     collectedBattery += 1;
             }
+<<<<<<< Updated upstream
             if (Rule == "scrWin")
+=======
+            if(Rule == "scrFlag")
+>>>>>>> Stashed changes
             {
-                //add YOU WIN to the screen
+                won = true;//add YOU WIN to the screen
             }
 
 
