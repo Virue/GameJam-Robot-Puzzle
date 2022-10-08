@@ -75,7 +75,7 @@ namespace paintV3
                         
 
                     }
-                    worldMats.Add(new material("Ground", 123, 123, 150, 30, false, false, SolidRules));
+                    worldMats.Add(new material("Ground", 195, 195, 195, 30, false, false, SolidRules));
                     worldMats.Add(new material("Walls", 0, 0, 0, 30, false, false, SolidRules));
                     worldMats.Add(new material("Metal", 114, 114, 114, 30, false, false, SolidRules));
                     worldMats.Add(new material("WoodWalls", 178, 111, 73, 30, false, false, NoRules));
@@ -110,6 +110,7 @@ namespace paintV3
 
                     worldMats.Add(new material("Battery", 239, 228, 176, 10, false, false, BatteryRules));
                     worldMats.Add(new material("Battery", 255, 201, 14, 10, false, false, BatteryRules));
+                    worldMats.Add(new material("Battery", 255, 255, 0, 10, false, false, BatteryRules));
 
                     List<rule> Fire1Rules = new List<rule>();
                     {
