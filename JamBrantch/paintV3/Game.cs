@@ -239,9 +239,9 @@ namespace paintV3
 
                     List<rule> FlagRules = new List<rule>();
                     {
-                        //FlagRules.Add(new rule());
-                        //FlagRules.Add(new rule());
-                        //FlagRules.Add(new rule());
+                        FlagRules.Add(new rule(true, -1,0, "player"));//player to the left of the flag
+
+                        
 
                     }
                     worldMats.Add(new material("Flag",237,28,36,20,false,false, FlagRules)); //red bit
@@ -267,9 +267,15 @@ namespace paintV3
             bkgrndMats.Add(new material("Building6", 136, 0, 21, 30, false, false, NoRules));
             bkgrndMats.Add(new material("Building7", 255, 127, 39, 30, false, false, NoRules));
             bkgrndMats.Add(new material("UnderBack", 237, 234, 211, 30, false, false, NoRules));
+            bkgrndMats.Add(new material("BurnDoor", 216, 156, 56, 30, false, false, NoRules));
             bkgrnd.materials = bkgrndMats;
             layers.Add(bkgrnd);
 
+            layer bgVoid = new layer("matt.bmp", -15, -40, 20000);
+            materialList bgVoidMats = new materialList();
+            bgVoidMats.Add(new material("black", 0, 0, 0, 30, false, false, NoRules));
+            bgVoid.materials = bgVoidMats;
+            layers.Add(bgVoid);
         }
 
         int batteryDecayCounter = 0;
@@ -406,7 +412,10 @@ namespace paintV3
             {
                 collectedBattery += 1;
             }
-
+            if(Rule == "scrWin")
+            {
+                //add YOU WIN to the screen
+            }
 
 
 
