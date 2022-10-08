@@ -36,6 +36,7 @@ namespace paintV3
         public bool peekOverlap = true;
         public bool fired = false;
 
+
         public bool acted = false;
         public List<rule> rules = new List<rule> { };
         public material(){}
@@ -70,21 +71,12 @@ namespace paintV3
         }
     }
 
-    public unsafe class rule {
+    public class rule {
         public bool condition;
         public int conditionX;
         public int conditionY;
         public string name;
         public bool fired;
-        public bool* ScriptNum;
-
-        public unsafe rule(bool condition_, int conditionX_, int conditionY_, string name_,bool* num)
-        {
-            condition = condition_;
-            conditionX = conditionX_;
-            conditionY = conditionY_;
-            name = name_;
-        }
 
         public rule(bool condition_, int conditionX_, int conditionY_, string name_) 
         { 
