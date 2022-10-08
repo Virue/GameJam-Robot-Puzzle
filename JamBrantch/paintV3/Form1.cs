@@ -118,9 +118,9 @@ namespace paintV3
             label1.Text = (sw.ElapsedMilliseconds / frames).ToString();
 
             
-            //Parallel.ForEach(ListOPixels, k => {
+            Parallel.ForEach(ListOPixels, k => {
 
-            foreach (int k in ListOPixels){
+            //foreach (int k in ListOPixels){
 
 
                 int i = k % (CamXRes);
@@ -150,7 +150,7 @@ namespace paintV3
 
                                 if (r.condition)
                                 {
-                                    if (r.name == "playerTreads") 
+                                    if (r.name == "player") 
                                     { if (true) { } }
 
                                     if (prevCondition != r.condition) { executeEffect = false; }
@@ -215,8 +215,8 @@ namespace paintV3
                 callItADay:
                 if (true) { }
 
-            } //4 da 4 each
-            //});
+            //} //4 da 4 each
+            });
 
             game.update(l.layerlist, keys, pictureBox2);
 

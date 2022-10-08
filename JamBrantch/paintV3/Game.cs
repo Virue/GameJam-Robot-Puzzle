@@ -34,10 +34,12 @@ namespace paintV3
                 {
                     List<rule> playerRules = new List<rule>();
                     {
+                        playerRules.Add(new rule(true, 0, 0, "player"));
+                        playerRules.Add(new rule(false, 0, 0, "scrHeart"));
                     }
                     playerMats.Add(new material("player", 184, 197, 203, 0, false, false, playerRules));
-                    playerMats.Add(new material("playerDark", 127, 127, 127, 0, false, false, playerRules));
-                    playerMats.Add(new material("playerTreads", 0, 0, 0, 0, false, false, playerRules));
+                    playerMats.Add(new material("player", 127, 127, 127, 0, false, false, playerRules));
+                    playerMats.Add(new material("player", 0, 0, 0, 0, false, false, playerRules));
                     playerMats.Add(new material("transperent", 255, 0, 255, 0, true, false, NoRules));
                 }
                 player.materials = playerMats;
@@ -52,20 +54,31 @@ namespace paintV3
                 world.locationY = -75;
 
 
-                world.dist = 200;
+                world.dist = 100;
                 materialList worldMats = new materialList();
                 {
 
-                    List<rule> WallsRules = new List<rule>();
+                    List<rule> SolidRules = new List<rule>();
                     {
-                        WallsRules.Add(new rule(true, 0, -1, "playerTreads"));
-                        WallsRules.Add(new rule(false, 0, 0, "scrPlayerGrnd"));
+                        SolidRules.Add(new rule(true, 0, -1, "player"));
+                        SolidRules.Add(new rule(false, 0, 0, "scrPlayerGrnd"));
+
+                        SolidRules.Add(new rule(true, 0, 1, "player"));
+                        SolidRules.Add(new rule(false, 0, 0, "scrPlayerUp"));
+
+                        SolidRules.Add(new rule(true, -1, 0, "player"));
+                        SolidRules.Add(new rule(false, 0, 0, "scrPlayerLft"));
+
+                        SolidRules.Add(new rule(true,  1, 0, "player"));
+                        SolidRules.Add(new rule(false, 0, 0, "scrPlayerRgt"));
+
+                        
+
                     }
-                    worldMats.Add(new material("Ground", 123, 123, 150, 30, false, false, NoRules));
-                    worldMats.Add(new material("Walls", 0, 0, 0, 30, false, false, WallsRules));
-                    worldMats.Add(new material("Metal", 114, 114, 114, 30, false, false, NoRules));
+                    worldMats.Add(new material("Ground", 123, 123, 150, 30, false, false, SolidRules));
+                    worldMats.Add(new material("Walls", 0, 0, 0, 30, false, false, SolidRules));
+                    worldMats.Add(new material("Metal", 114, 114, 114, 30, false, false, SolidRules));
                     worldMats.Add(new material("WoodWalls", 178, 111, 73, 30, false, false, NoRules));
-                    worldMats.Add(new material("Metal", 114, 114, 114, 30, false, false, NoRules));
                     worldMats.Add(new material("transperent", 255, 0, 255, 0, true, true, NoRules));
 
 
@@ -197,7 +210,7 @@ namespace paintV3
             layers.Add(world);
 
 
-            layer bkgrnd = new layer("BgLvl1.bmp", 25, -75, 200);
+            layer bkgrnd = new layer("BgLvl1.bmp", 25, -75, 100);
                 materialList bkgrndMats = new materialList();
             //   bkgrndMats.Add(new material("black", 0, 0, 0, 30, false, false, NoRules));
             bkgrndMats.Add(new material("lightgrey", 195, 195, 195, 30, false, false, NoRules));
@@ -221,52 +234,82 @@ namespace paintV3
 
         bool CanMoveLeft = true;
         bool CanMoveRight = true;
-        bool CanMoveUp = true;
         bool CanMoveDown = true;
 
-        bool Fired;
+        bool doCol = false;
 
         public void startup(PictureBox battery) 
         {
             
         }
+
+
         public void update(List<layer> GameLayers, Imputs key , PictureBox battery) 
         {
-            int camSpeed = 200;
+            if (doCol)
+            {
 
-            if (key.A && CanMoveLeft ) { foreach (layer lay in GameLayers) { lay.ParalaxMove(-camSpeed,0);  } }
-            if (key.D && CanMoveRight) { foreach (layer lay in GameLayers) { lay.ParalaxMove(camSpeed,0);   } }
-            if (key.W && CanMoveUp   ) { foreach (layer lay in GameLayers) { lay.ParalaxMove(0,-camSpeed);  } }
-            if (key.S && CanMoveDown ) { foreach (layer lay in GameLayers) { lay.ParalaxMove(0,camSpeed);   } }
+                int camSpeed = 200;
 
-            batteryDecayCounter ++;
-            if (batteryDecayCounter == 10) {
-                batteryDecayCounter = 0;
-                battery.Height = battery.Height - 1;
+                if (key.A && CanMoveLeft) { foreach (layer lay in GameLayers) { lay.ParalaxMove(-camSpeed, 0); } }
+                if (key.D && CanMoveRight) { foreach (layer lay in GameLayers) { lay.ParalaxMove(camSpeed, 0); } }
+                if (key.W) { foreach (layer lay in GameLayers) { lay.ParalaxMove(0, -camSpeed); } }
+                if (key.S && CanMoveDown) { foreach (layer lay in GameLayers) { lay.ParalaxMove(0, camSpeed); } }
 
+                batteryDecayCounter++;
+                if (batteryDecayCounter == 10)
+                {
+                    batteryDecayCounter = 0;
+                    battery.Height = battery.Height - 1;
+
+                }
+
+
+
+
+                //upkeep
+
+                if (!CanMoveDown)
+                {
+                    CanMoveDown = true;
+                }
+
+                if (!CanMoveLeft)
+                {
+                    CanMoveLeft = true;
+                }
+
+                if (!CanMoveRight)
+                {
+                    CanMoveRight = true;
+                }
             }
-
-
-
-            //upkeep
-            Fired = !Fired;
-            if (!CanMoveDown && Fired) {
-                CanMoveDown = true; 
-            }            
-
         }
 
         public void MaterialScript(string Rule) 
         {
-            if (Rule == "scrPlayerGrnd") 
+            if (Rule == "scrHeart")
+            {
+                doCol = true;
+            }
+
+            if (Rule == "scrPlayerGrnd")
             {
                 CanMoveDown = false;
             }
-        
+            else { }
+
+            if (Rule == "scrPlayerLft")
+            {
+                CanMoveLeft = false;
+            }
+
+            if (Rule == "scrPlayerRgt")
+            {
+                CanMoveRight = false;
+            }
+
+
         }
-        
-
-       
-
     }
 }
