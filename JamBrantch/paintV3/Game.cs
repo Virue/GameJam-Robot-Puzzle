@@ -105,17 +105,17 @@ namespace paintV3
 
                     List<rule> LazerRules = new List<rule>();
                     {
-
-                        LazerRules.Add(new rule(true, 1, 0, "WoodWalls"));  //destroy wood wall
+                        LazerRules.Add(new rule(true, 1, 0, "transperent"));  //lazer right
                         LazerRules.Add(new rule(false, 0, 0, "transperent"));
+                        LazerRules.Add(new rule(false, 1, 0, "Lazer"));
+                        LazerRules.Add(new rule(true, 1, 0, "WoodWalls"));  //destroy wood wall
+                        LazerRules.Add(new rule(false, 1, 0, "transperent"));
                         LazerRules.Add(new rule(true, 0, 1, "WoodWalls"));  //destroy burn wood wall
                         LazerRules.Add(new rule(false, 0, 1, "Fire1"));
                         LazerRules.Add(new rule(true, 0, 1, "WoodWalls"));
                         LazerRules.Add(new rule(false, 0, -1, "Fire1"));
                         LazerRules.Add(new rule(false, 1, 0, "Lazer"));
-                        LazerRules.Add(new rule(true, 1, 0, "transperent"));  //lazer right
-                        LazerRules.Add(new rule(false, 0, 0, "transperent"));
-                        LazerRules.Add(new rule(false, 1, 0, "Lazer"));
+
                         LazerRules.Add(new rule(true, 1, 0, "Walls"));  //lazer wall
                         LazerRules.Add(new rule(false, 0, 0, "transperent"));
                     }
@@ -148,7 +148,7 @@ namespace paintV3
                     }
                     List<rule> BatteryKillRules = new List<rule>();
                     {
-                        
+
                         BatteryKillRules.Add(new rule(true, 0, 0, "BatteryKill"));
                         BatteryKillRules.Add(new rule(false, 0, 0, "Smoke"));
                     }
@@ -178,28 +178,28 @@ namespace paintV3
                     }
                     List<rule> Fire2Rules = new List<rule>();
                     {
-                        Fire1Rules.Add(new rule(true, 0, 0, "Fire2"));
-                        Fire1Rules.Add(new rule(false, 0, 0, "Fire3"));
-                        Fire1Rules.Add(new rule(true, 0, 0, "Fire3"));
-                        Fire1Rules.Add(new rule(false, 0, 0, "Fire4"));
-                        Fire1Rules.Add(new rule(true, 0, 0, "Fire4"));
-                        Fire1Rules.Add(new rule(false, 0, 0, "Fire5"));
-                        Fire1Rules.Add(new rule(true, 0, 0, "Fire5"));
-                        Fire1Rules.Add(new rule(false, 0, 0, "Fire6"));
-                        Fire1Rules.Add(new rule(true, 0, 0, "Fire6"));
-                        Fire1Rules.Add(new rule(false, 0, 0, "Fire7"));
-                        Fire1Rules.Add(new rule(true, 0, 0, "Fire7"));
-                        Fire1Rules.Add(new rule(false, 0, 0, "Fire8"));
-                        Fire1Rules.Add(new rule(true, 0, 0, "Fire8"));
-                        Fire1Rules.Add(new rule(false, 0, 0, "Fire9"));
-                        Fire1Rules.Add(new rule(true, 0, 0, "Fire9"));
-                        Fire1Rules.Add(new rule(false, 0, 0, "Fire10"));
-                        Fire1Rules.Add(new rule(true, 0, 0, "Fire10"));
-                        Fire1Rules.Add(new rule(false, 0, 0, "Fire11"));
-                        Fire1Rules.Add(new rule(true, 0, 0, "Fire11"));
-                        Fire1Rules.Add(new rule(false, 0, 0, "Fire12"));
-                        Fire1Rules.Add(new rule(true, 0, 0, "Fire12"));
-                        Fire1Rules.Add(new rule(false, 0, 0, "Smoke"));
+                        Fire2Rules.Add(new rule(true, 0, 0, "Fire2"));
+                        Fire2Rules.Add(new rule(false, 0, 0, "Fire3"));
+                        Fire2Rules.Add(new rule(true, 0, 0, "Fire3"));
+                        Fire2Rules.Add(new rule(false, 0, 0, "Fire4"));
+                        Fire2Rules.Add(new rule(true, 0, 0, "Fire4"));
+                        Fire2Rules.Add(new rule(false, 0, 0, "Fire5"));
+                        Fire2Rules.Add(new rule(true, 0, 0, "Fire5"));
+                        Fire2Rules.Add(new rule(false, 0, 0, "Fire6"));
+                        Fire2Rules.Add(new rule(true, 0, 0, "Fire6"));
+                        Fire2Rules.Add(new rule(false, 0, 0, "Fire7"));
+                        Fire2Rules.Add(new rule(true, 0, 0, "Fire7"));
+                        Fire2Rules.Add(new rule(false, 0, 0, "Fire8"));
+                        Fire2Rules.Add(new rule(true, 0, 0, "Fire8"));
+                        Fire2Rules.Add(new rule(false, 0, 0, "Fire9"));
+                        Fire2Rules.Add(new rule(true, 0, 0, "Fire9"));
+                        Fire2Rules.Add(new rule(false, 0, 0, "Fire10"));
+                        Fire2Rules.Add(new rule(true, 0, 0, "Fire10"));
+                        Fire2Rules.Add(new rule(false, 0, 0, "Fire11"));
+                        Fire2Rules.Add(new rule(true, 0, 0, "Fire11"));
+                        Fire2Rules.Add(new rule(false, 0, 0, "Fire12"));
+                        Fire2Rules.Add(new rule(true, 0, 0, "Fire12"));
+                        Fire2Rules.Add(new rule(false, 0, 0, "Smoke"));
                     }
                     worldMats.Add(new material("Fire1", 255, 0, 0, 0, false, false, Fire1Rules));
                     worldMats.Add(new material("Fire2", 255, 25, 0, 0, false, false, Fire2Rules));
@@ -213,7 +213,6 @@ namespace paintV3
                     worldMats.Add(new material("Fire10", 255, 250, 0, 0, false, false, Fire2Rules));
                     worldMats.Add(new material("Fire11", 255, 255, 0, 0, false, false, Fire2Rules));
                     worldMats.Add(new material("Fire12", 255, 255, 0, 0, false, false, Fire2Rules));
-
                     List<rule> SmokeRules = new List<rule>();
                     {
                         SmokeRules.Add(new rule(true, 0, -1, "transperent"));  //smoke up
@@ -324,40 +323,47 @@ namespace paintV3
             int camSpeed = 200;
 
 
-            if (key.W && canJump){
+            if (key.W && canJump)
+            {
                 jumping = true; canJump = false; jump = -200;
-                collectedBattery -= 10;
+                collectedBattery -= 26;
             }
-            else{
-                if ( (!CanMoveDown) && (jump>0)) { jumping = false; canJump = true; jump = 0; }
-                
+            else
+            {
+                if ((!CanMoveDown) && (jump > 0)) { jumping = false; canJump = true; jump = 0; }
+
             }
 
-            if (jumping && (jump<200)) { jump += 5; }
+            if (jumping && (jump < 200)) { jump += 5; }
 
-            if (CanMoveDown || (jump < 0)) { foreach (layer lay in GameLayers) { lay.ParalaxMove(0, jump); } }    
+            if (CanMoveDown || (jump < 0)) { foreach (layer lay in GameLayers) { lay.ParalaxMove(0, jump); } }
             if (!jumping && CanMoveDown) { foreach (layer lay in GameLayers) { lay.ParalaxMove(0, 200); } }
 
             if (key.A && CanMoveLeft) { foreach (layer lay in GameLayers) { lay.ParalaxMove(-camSpeed, 0); } batteryDecayCounter++; }
             if (key.D && CanMoveRight) { foreach (layer lay in GameLayers) { lay.ParalaxMove(camSpeed, 0); } batteryDecayCounter++; }
             //if (key.S && CanMoveDown) { foreach (layer lay in GameLayers) { lay.ParalaxMove(0, camSpeed); } }
 
-            if (collectedBattery != 0) 
+            if (collectedBattery != 0)
             {
-                if(collectedBattery < 0)
+                if (collectedBattery < 0)
                 {
                     collectedBattery += 1;
                     battery.Height -= 1;
-                    
+
                 }
                 if (collectedBattery > 0)
                 {
                     collectedBattery -= 1;
                     battery.Height += 1;
+
+                }
+                if (battery.Height >= 501)
+                {
+                    battery.Height = 500;
                 }
             }
 
-            
+
             if (batteryDecayCounter == 5)
             {
                 batteryDecayCounter = 0;
@@ -430,11 +436,12 @@ namespace paintV3
                 CanMoveRight = false;
             }
 
-            if (Rule == "scrBattery") 
+            if (Rule == "scrBattery")
             {
-                collectedBattery += 1;
+                if (collectedBattery < 150)
+                    collectedBattery += 1;
             }
-            if(Rule == "scrWin")
+            if (Rule == "scrWin")
             {
                 //add YOU WIN to the screen
             }
