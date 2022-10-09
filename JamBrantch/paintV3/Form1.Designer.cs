@@ -85,9 +85,9 @@
             this.winScreen.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("winScreen.BackgroundImage")));
             this.winScreen.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.winScreen.Location = new System.Drawing.Point(0, 0);
+            this.winScreen.Margin = new System.Windows.Forms.Padding(0);
             this.winScreen.Name = "winScreen";
             this.winScreen.Size = new System.Drawing.Size(902, 423);
-            this.winScreen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.winScreen.TabIndex = 3;
             this.winScreen.TabStop = false;
             this.winScreen.Visible = false;
@@ -97,9 +97,9 @@
             this.dieScreen.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("dieScreen.BackgroundImage")));
             this.dieScreen.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.dieScreen.Location = new System.Drawing.Point(0, 0);
+            this.dieScreen.Margin = new System.Windows.Forms.Padding(0);
             this.dieScreen.Name = "dieScreen";
             this.dieScreen.Size = new System.Drawing.Size(902, 423);
-            this.dieScreen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.dieScreen.TabIndex = 4;
             this.dieScreen.TabStop = false;
             this.dieScreen.Visible = false;
