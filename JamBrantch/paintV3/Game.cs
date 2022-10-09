@@ -301,7 +301,7 @@ namespace paintV3
 
             layer bkgrnd = new layer("BgLvl1.bmp", 25, -75, 200);
             materialList bkgrndMats = new materialList();
-            //   bkgrndMats.Add(new material("black", 0, 0, 0, 30, false, false, NoRules));
+            bkgrndMats.Add(new material("black", 0, 0, 0, 30, false, false, NoRules));
             bkgrndMats.Add(new material("lightgrey", 195, 195, 195, 30, false, false, NoRules));//in it
             bkgrndMats.Add(new material("lightergrey", 127, 127, 127, 30, false, false, NoRules)); //in it
             //bkgrndMats.Add(new material("grey", 159, 159, 159, 30, false, false, NoRules)); dont add back in
@@ -315,6 +315,12 @@ namespace paintV3
             bkgrndMats.Add(new material("Building7", 255, 127, 39, 30, false, false, NoRules));
             bkgrndMats.Add(new material("UnderBack", 237, 234, 211, 30, false, false, NoRules));
             bkgrndMats.Add(new material("BurnDoor", 216, 156, 56, 30, false, false, NoRules));
+            bkgrndMats.Add(new material("Slime0", 23, 121, 53, 30, false, false, NoRules));
+            bkgrndMats.Add(new material("Slime1", 34, 177, 76, 30, false, false, NoRules));
+            bkgrndMats.Add(new material("Slime2", 88, 184, 100, 30, false, false, NoRules));
+            bkgrndMats.Add(new material("Slime3", 135, 194, 138, 30, false, false, NoRules));
+            bkgrndMats.Add(new material("Slime4", 123, 155, 94, 30, false, false, NoRules));
+            bkgrndMats.Add(new material("Slime5", 155, 157, 106, 30, false, false, NoRules));
             bkgrnd.materials = bkgrndMats;
             layers.Add(bkgrnd);
 
