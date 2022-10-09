@@ -51,8 +51,8 @@ namespace paintV3
             {
                 BatteryOutline.name = "BatteryOutline";
                 BatteryOutline.source = "BatteryOutline.bmp";
-                BatteryOutline.locationX = 0;
-                BatteryOutline.locationY = 5;
+                BatteryOutline.locationX = -1.3;
+                BatteryOutline.locationY = -3;
                 BatteryOutline.dist = 100000000;
 
                 materialList BatteryOutlineMats = new materialList();
@@ -343,7 +343,7 @@ namespace paintV3
             if (key.A && CanMoveLeft) { foreach (layer lay in GameLayers) { lay.ParalaxMove(-camSpeed, 0); } batteryDecayCounter++; }
             if (key.D && CanMoveRight) { foreach (layer lay in GameLayers) { lay.ParalaxMove(camSpeed, 0); } batteryDecayCounter++; }
             //if (key.S && CanMoveDown) { foreach (layer lay in GameLayers) { lay.ParalaxMove(0, camSpeed); } }
-
+            
             if (collectedBattery != 0)
             {
                 if (collectedBattery < 0)
@@ -471,6 +471,7 @@ namespace paintV3
             {
                 won = true;//add YOU WIN to the screen
             }
+
 
 
 
