@@ -122,6 +122,15 @@ namespace paintV3
                     }
                     worldMats.Add(new material("Lazer", 0, 255, 0, 0, false, false, LazerRules));
 
+                    List<rule> LazerEmiterRules = new List<rule>();
+                    {
+                        LazerEmiterRules.Add(new rule(true, -1, 0, "player"));
+                        LazerEmiterRules.Add(new rule(false, 1, 0, "Lazer"));
+                        LazerEmiterRules.Add(new rule(false, 0, 0, "transperent"));
+                        LazerEmiterRules.Add(new rule(false, 0, 0, "scrlazer"));
+                    }
+                    worldMats.Add(new material("LazerEmiter", 200, 200, 200, 0, false, false, LazerEmiterRules));
+
                     List<rule> BatteryRules = new List<rule>();
                     {
                         BatteryRules.Add(new rule(true, 0, 0, "player"));
@@ -401,17 +410,44 @@ namespace paintV3
             {
                 foreach (layer lay in Form1.l.layerlist)
                 {
-                    if (lay.name == "world")
+                    if (lay.name == "player")
                     {
 
+
+
+                        List<rule> LazerEmiterRules = new List<rule>();
+                        {
+                            LazerEmiterRules.Add(new rule(true, -1, 0, "player"));
+                            LazerEmiterRules.Add(new rule(false, 1, 0, "Lazer"));
+                            LazerEmiterRules.Add(new rule(false, 0, 0, "transperent"));
+                            LazerEmiterRules.Add(new rule(false, 0, 0, "scrlazer"));
+                            LazerEmiterRules.Add(new rule(true, 0, 0, "player"));
+                            LazerEmiterRules.Add(new rule(false, 1, 0, "Lazer"));
+                            LazerEmiterRules.Add(new rule(false, 0, 0, "transperent"));
+                            LazerEmiterRules.Add(new rule(false, 0, 0, "scrlazer"));
+                            LazerEmiterRules.Add(new rule(true, 0, 0, "transperent"));
+                            LazerEmiterRules.Add(new rule(false, 1, 0, "Lazer"));
+                            LazerEmiterRules.Add(new rule(false, 0, 0, "transperent"));
+                            LazerEmiterRules.Add(new rule(false, 0, 0, "scrlazer"));
+                        }
                         List<rule> LazerRules = new List<rule>();
                         {
                             LazerRules.Add(new rule(true, 1, 0, "transperent"));  //lazer right
+                            LazerRules.Add(new rule(false, 0, 0, "transperent"));
                             LazerRules.Add(new rule(false, 1, 0, "Lazer"));
+                            LazerRules.Add(new rule(true, 1, 0, "WoodWalls"));  //destroy wood wall
+                            LazerRules.Add(new rule(false, 1, 0, "transperent"));
+                            LazerRules.Add(new rule(true, 0, 1, "WoodWalls"));  //destroy burn wood wall
+                            LazerRules.Add(new rule(false, 0, 1, "Fire1"));
+                            LazerRules.Add(new rule(true, 0, -1, "WoodWalls"));
+                            LazerRules.Add(new rule(false, 0, -1, "Fire1"));
+
+                            LazerRules.Add(new rule(true, 1, 0, "Ground"));  //lazer wall
                             LazerRules.Add(new rule(false, 0, 0, "transperent"));
                         }
-
-                        lay.loaded[100, 100] = new material("Lazer", 255, 0, 255, 0, false, false, LazerRules);
+                        new material("LazerEmiter", 200, 200, 200, 0, false, false, LazerEmiterRules);
+                        new material("Lazer", 0, 255, 0, 0, false, false, LazerRules);
+                        lay.loaded[12, 5] = new material("LazerEmiter", 200, 200, 200, 0, false, false, LazerEmiterRules);
                     }
                 }
             }
@@ -467,8 +503,12 @@ namespace paintV3
                 if (collectedBattery < 150)
                     collectedBattery += 1;
             }
+            if (Rule == "scrlazer")
+            {
+                collectedBattery -= 8;
+            }
 
-            if(Rule == "scrFlag")
+            if (Rule == "scrFlag")
             {
                 won = true;//add YOU WIN to the screen
             }
