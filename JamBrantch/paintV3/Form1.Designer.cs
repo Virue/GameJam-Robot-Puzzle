@@ -71,11 +71,14 @@
             // pictureBox2
             // 
             this.pictureBox2.BackColor = System.Drawing.Color.Lime;
-            this.pictureBox2.Location = new System.Drawing.Point(14, 25);
+            this.pictureBox2.Location = new System.Drawing.Point(14, 24);
+            this.pictureBox2.MaximumSize = new System.Drawing.Size(63, 615);
+            this.pictureBox2.MinimumSize = new System.Drawing.Size(63, 0);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(32, 113);
+            this.pictureBox2.Size = new System.Drawing.Size(63, 113);
             this.pictureBox2.TabIndex = 2;
             this.pictureBox2.TabStop = false;
+            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
             // 
             // winScreen
             // 

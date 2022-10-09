@@ -272,8 +272,7 @@ namespace paintV3
 
                     }
                     worldMats.Add(new material("Flag",237,28,36,20,false,false, FlagRules)); //red bit
-                    worldMats.Add(new material("Flag", 195, 195, 195, 20, false, false, FlagRules)); //Grey pole bit
-                    worldMats.Add(new material("Flag", 127, 127, 127, 20, false, false, FlagRules)); //dark grey bottom bit
+                    
                 }
                 world.materials = worldMats;
             }
@@ -364,12 +363,25 @@ namespace paintV3
                     battery.Height += 1;
 
                 }
-                if (battery.Height >= 601)
+                if (battery.Height >= 616)
                 {
-                    battery.Height = 600;
+                    battery.Height = 615;
                 }
             }
-            if(battery.Height == 0)
+            if (battery.Height >= 301)
+            {
+                battery.BackColor = Color.Green;
+            }
+            if (battery.Height <= 301)
+            {
+                battery.BackColor = Color.Orange;
+            }
+            if (battery.Height <= 151)
+            {
+                battery.BackColor = Color.Yellow;
+            }
+          
+            if (battery.Height == 0)
             {
                 dieScreen.Visible = true;
             }
