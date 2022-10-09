@@ -346,6 +346,9 @@ namespace paintV3
         public void update(List<layer> GameLayers, Imputs key, PictureBox battery, PictureBox winScreen, PictureBox dieScreen)
         {
 
+            
+
+
             int camSpeed = 200;
 
 

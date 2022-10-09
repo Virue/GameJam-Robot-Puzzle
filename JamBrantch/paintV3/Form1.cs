@@ -88,6 +88,14 @@ namespace paintV3
 
         private void Form1_Resize(object sender, EventArgs e)
         {
+
+            winScreen.Height = this.Height;
+            dieScreen.Height = this.Height;
+            winScreen.Width = this.Width;
+            dieScreen.Width = this.Width;
+
+
+
             if (Screen != null) {
                 Screen.Dispose(); }
             ScaleWindow();
@@ -220,6 +228,8 @@ namespace paintV3
 
             //} //4 da 4 each
             });
+
+
 
             game.update(l.layerlist, keys, pictureBox2,winScreen,dieScreen);
 
