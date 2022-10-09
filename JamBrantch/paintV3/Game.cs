@@ -419,7 +419,7 @@ namespace paintV3
             if (won == true)
             {
                winScreen.Visible = true;
-                won = false;
+                
             }
 
 
