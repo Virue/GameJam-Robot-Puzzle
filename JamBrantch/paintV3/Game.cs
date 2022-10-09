@@ -262,7 +262,13 @@ namespace paintV3
                     {
                         FlagRules.Add(new rule(true, -1,0, "player"));//player to the left of the flag
                         FlagRules.Add(new rule(false, 0, 0, "scrFlag"));
-                        
+                        FlagRules.Add(new rule(true, 1, 0, "player"));//player to the right of the flag
+                        FlagRules.Add(new rule(false, 0, 0, "scrFlag"));
+                        FlagRules.Add(new rule(true, 0, -1, "player"));//player to the bot of the flag
+                        FlagRules.Add(new rule(false, 0, 0, "scrFlag"));
+                        FlagRules.Add(new rule(true, 0, 1, "player"));//player to the top of the flag
+                        FlagRules.Add(new rule(false, 0, 0, "scrFlag"));
+
 
                     }
                     worldMats.Add(new material("Flag",237,28,36,20,false,false, FlagRules)); //red bit
@@ -358,10 +364,14 @@ namespace paintV3
                     battery.Height += 1;
 
                 }
-                if (battery.Height >= 501)
+                if (battery.Height >= 601)
                 {
-                    battery.Height = 500;
+                    battery.Height = 600;
                 }
+            }
+            if(battery.Height == 0)
+            {
+                dieScreen.Visible = true;
             }
 
 
@@ -396,25 +406,7 @@ namespace paintV3
 
             if (won == true)
             {
-                layer win = new layer();
-                {
-                    win.name = "win";
-                    win.source = "You Win.bmp";
-                    win.locationX = 4423;
-                    win.locationY = 539;
-                    win.dist = 1000000000;
-
-                    materialList winMats = new materialList();
-                    {
-                        List<rule> NoRules = new List<rule>();
-                        winMats.Add(new material("win", 255, 242, 0, 0, false, false, NoRules));
-                        winMats.Add(new material("win", 0, 0, 0, 0, false, false, NoRules));
-                        //  winMats.Add(new material("transperent", 255, 0, 255, 0, true, false, NoRules));
-                    }
-                    win.materials = winMats;
-                }
-                GameLayers.Clear();
-                GameLayers.Add(win);
+               winScreen.Visible = true;
                 won = false;
             }
 

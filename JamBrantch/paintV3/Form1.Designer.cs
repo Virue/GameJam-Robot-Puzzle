@@ -84,6 +84,7 @@
             this.winScreen.Location = new System.Drawing.Point(0, 0);
             this.winScreen.Name = "winScreen";
             this.winScreen.Size = new System.Drawing.Size(902, 423);
+            this.winScreen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.winScreen.TabIndex = 3;
             this.winScreen.TabStop = false;
             this.winScreen.Visible = false;
@@ -95,6 +96,7 @@
             this.dieScreen.Location = new System.Drawing.Point(0, 0);
             this.dieScreen.Name = "dieScreen";
             this.dieScreen.Size = new System.Drawing.Size(902, 423);
+            this.dieScreen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.dieScreen.TabIndex = 4;
             this.dieScreen.TabStop = false;
             this.dieScreen.Visible = false;
@@ -131,8 +133,8 @@
         public System.Windows.Forms.PictureBox pictureBox1;
         public System.Windows.Forms.Label label1;
         public System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.PictureBox winScreen;
-        private System.Windows.Forms.PictureBox dieScreen;
+        public System.Windows.Forms.PictureBox winScreen;
+        public System.Windows.Forms.PictureBox dieScreen;
     }
 }
 
