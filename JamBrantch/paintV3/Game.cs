@@ -34,6 +34,14 @@ namespace paintV3
 
                 materialList playerMats = new materialList();
                 {
+
+                    List<rule> LazerRules = new List<rule>();
+                    {
+                        LazerRules.Add(new rule(true, 1, 0, "transperent"));  //lazer right
+                        LazerRules.Add(new rule(false, 1, 0, "Lazer"));
+                        LazerRules.Add(new rule(false, 0, 0, "transperent"));
+                    }
+                    playerMats.Add(new material("Lazer",250,0,250,0,false,false,LazerRules));
                     List<rule> playerRules = new List<rule>();
                     {
 
@@ -78,6 +86,27 @@ namespace paintV3
 
                 materialList worldMats = new materialList();
                 {
+                    List<rule> SolidWoodRules = new List<rule>();
+                    {
+                        SolidWoodRules.Add(new rule(true, 0, -1, "player"));
+                        SolidWoodRules.Add(new rule(false, 0, 0, "scrPlayerGrnd"));
+
+                        SolidWoodRules.Add(new rule(true, 0, 1, "player"));
+                        SolidWoodRules.Add(new rule(false, 0, 0, "scrPlayerUp"));
+
+                        SolidWoodRules.Add(new rule(true, 1, 0, "player"));
+                        SolidWoodRules.Add(new rule(false, 0, 0, "scrPlayerLft"));
+
+                        SolidWoodRules.Add(new rule(true, -1, 0, "player"));
+                        SolidWoodRules.Add(new rule(false, 0, 0, "scrPlayerRgt"));
+
+                        SolidWoodRules.Add(new rule(true, -1, 0, "Lazer"));
+                        SolidWoodRules.Add(new rule(false, 0, 0, "Fire1"));
+
+                    }
+
+                    worldMats.Add(new material("WoodWalls", 178, 111, 73, 30, false, false, SolidWoodRules));
+
 
                     List<rule> SolidRules = new List<rule>();
                     {
@@ -96,10 +125,11 @@ namespace paintV3
 
 
                     }
+
+
                     worldMats.Add(new material("Ground", 195, 195, 195, 30, false, false, SolidRules));
                     worldMats.Add(new material("Walls", 0, 0, 0, 30, false, false, SolidRules));
                     worldMats.Add(new material("Metal", 114, 114, 114, 30, false, false, SolidRules));
-                    worldMats.Add(new material("WoodWalls", 178, 111, 73, 30, false, false, NoRules));
                     worldMats.Add(new material("transperent", 255, 0, 255, 0, true, true, NoRules));
 
 
@@ -109,16 +139,6 @@ namespace paintV3
                         LazerRules.Add(new rule(true, 1, 0, "transperent"));  //lazer right
                         LazerRules.Add(new rule(false, 0, 0, "transperent"));
                         LazerRules.Add(new rule(false, 1, 0, "Lazer"));
-                        LazerRules.Add(new rule(true, 1, 0, "WoodWalls"));  //destroy wood wall
-                        LazerRules.Add(new rule(false, 1, 0, "transperent"));
-                        LazerRules.Add(new rule(true, 0, 1, "WoodWalls"));  //destroy burn wood wall
-                        LazerRules.Add(new rule(false, 0, 1, "Fire1"));
-                        LazerRules.Add(new rule(true, 0, 1, "WoodWalls"));
-                        LazerRules.Add(new rule(false, 0, -1, "Fire1"));
-                        LazerRules.Add(new rule(false, 1, 0, "Lazer"));
-
-                        LazerRules.Add(new rule(true, 1, 0, "Walls"));  //lazer wall
-                        LazerRules.Add(new rule(false, 0, 0, "transperent"));
                     }
                     worldMats.Add(new material("Lazer", 0, 255, 0, 0, false, false, LazerRules));
 
@@ -151,7 +171,7 @@ namespace paintV3
                     {
 
                         BatteryKillRules.Add(new rule(true, 0, 0, "BatteryKill"));
-                        BatteryKillRules.Add(new rule(false, 0, 0, "Smoke"));
+                        BatteryKillRules.Add(new rule(false, 0, 0, "transperent"));
                     }
 
                     worldMats.Add(new material("Battery", 239, 228, 176, 10, false, false, BatteryRules));
@@ -398,7 +418,7 @@ namespace paintV3
             {
                 foreach (layer lay in Form1.l.layerlist)
                 {
-                    if (lay.name == "world")
+                    if (lay.name == "player")
                     {
 
                         List<rule> LazerRules = new List<rule>();
@@ -408,7 +428,8 @@ namespace paintV3
                             LazerRules.Add(new rule(false, 0, 0, "transperent"));
                         }
 
-                        lay.loaded[100, 100] = new material("Lazer", 255, 0, 255, 0, false, false, LazerRules);
+                        lay.loaded[21, 14] = new material("Lazer", 255, 0, 255, 0, false, false, LazerRules);
+                        lay.loaded[21, 13] = new material("Lazer", 255, 0, 255, 0, false, false, LazerRules);
                     }
                 }
             }

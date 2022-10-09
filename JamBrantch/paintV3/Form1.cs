@@ -181,13 +181,14 @@ namespace paintV3
                                         game.MaterialScript(r.name);
                                     }
                                     
+
                                     foreach (material m in lay.materials.mat_list)
                                     {
                                         if (m.name == r.name)
                                         {
                                             lay.loaded[Xlook + r.conditionX, Ylook + r.conditionY] = l.DoVariation(m.clone(), (int)sw.ElapsedMilliseconds);
                                             lay.loaded[Xlook + r.conditionX, Ylook + r.conditionY].fired = fireingFrameTracker;
-                                            //lay.loaded[Xlook, Ylook].fired = fireingFrameTracker;
+                                            lay.loaded[Xlook, Ylook].fired = fireingFrameTracker;
 
                                             if (!lay.loaded[Xlook, Ylook].transparent)
                                             {
