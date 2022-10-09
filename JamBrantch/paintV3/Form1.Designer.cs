@@ -97,6 +97,7 @@
             this.dieScreen.Size = new System.Drawing.Size(902, 423);
             this.dieScreen.TabIndex = 4;
             this.dieScreen.TabStop = false;
+            this.dieScreen.Visible = false;
             // 
             // Form1
             // 
@@ -108,7 +109,7 @@
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
