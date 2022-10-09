@@ -41,7 +41,7 @@ namespace paintV3
                         LazerRules.Add(new rule(false, 1, 0, "Lazer"));
                         LazerRules.Add(new rule(false, 0, 0, "transperent"));
                     }
-                    playerMats.Add(new material("Lazer",250,0,250,0,false,false,LazerRules));
+                    playerMats.Add(new material("Lazer",0,255,0,0,false,false,LazerRules));
                     List<rule> playerRules = new List<rule>();
                     {
 
