@@ -426,10 +426,11 @@ namespace paintV3
                             LazerRules.Add(new rule(true, 1, 0, "transperent"));  //lazer right
                             LazerRules.Add(new rule(false, 1, 0, "Lazer"));
                             LazerRules.Add(new rule(false, 0, 0, "transperent"));
+                            LazerRules.Add(new rule(false, 0, 0, "scrLazer"));
                         }
 
-                        lay.loaded[21, 14] = new material("Lazer", 255, 0, 255, 0, false, false, LazerRules);
-                        lay.loaded[21, 13] = new material("Lazer", 255, 0, 255, 0, false, false, LazerRules);
+                        lay.loaded[21, 14] = new material("Lazer", 0, 255, 0, 0, false, false, LazerRules);
+                        lay.loaded[21, 13] = new material("Lazer", 0, 255, 0, 0, false, false, LazerRules);
                     }
                 }
             }
@@ -484,6 +485,10 @@ namespace paintV3
             {
                 if (collectedBattery < 150)
                     collectedBattery += 1;
+            }
+            if (Rule == "scrLazer")
+            {
+                collectedBattery -= 10;
             }
 
             if(Rule == "scrFlag")
