@@ -220,7 +220,7 @@ namespace paintV3
             //} //4 da 4 each
             });
 
-            game.update(l.layerlist, keys, pictureBox2);
+            game.update(l.layerlist, keys, pictureBox2,winScreen,dieScreen);
 
 
             pictureBox1.Image = Screen.Bitmap;

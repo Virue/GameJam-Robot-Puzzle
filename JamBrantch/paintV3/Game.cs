@@ -318,7 +318,7 @@ namespace paintV3
         bool jumping = true;
         int jump = 0;
         bool won = false;
-        public void update(List<layer> GameLayers, Imputs key, PictureBox battery)
+        public void update(List<layer> GameLayers, Imputs key, PictureBox battery, PictureBox winScreen, PictureBox dieScreen)
         {
 
             int camSpeed = 200;
@@ -463,11 +463,8 @@ namespace paintV3
                 if (collectedBattery < 150)
                     collectedBattery += 1;
             }
-<<<<<<< Updated upstream
-            if (Rule == "scrWin")
-=======
+
             if(Rule == "scrFlag")
->>>>>>> Stashed changes
             {
                 won = true;//add YOU WIN to the screen
             }
