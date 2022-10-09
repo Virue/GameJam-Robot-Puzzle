@@ -380,14 +380,11 @@ namespace paintV3
             {
                 battery.BackColor = Color.Yellow;
             }
-          
             if (battery.Height == 0)
             {
                 dieScreen.Visible = true;
             }
-
-
-            if (batteryDecayCounter == 5)
+            if (batteryDecayCounter >= 5)
             {
                 batteryDecayCounter = 0;
                 battery.Height = battery.Height - 1;
